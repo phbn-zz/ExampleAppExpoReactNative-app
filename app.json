@@ -1,14 +1,13 @@
 {
   "expo": {
-    "name": "ExampleWork",
-    "slug": "ExampleWork",
+    "name": "ExampleWorkPHBN",
+    "description": "This app contains a sample of my previous work as a developer",
+    "slug": "ExampleWorkPHBN",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
+    "githubUrl": "https://github.com/phbn/ExampleWork.git",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -19,9 +18,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }

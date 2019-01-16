@@ -1,4 +1,5 @@
 import React from 'react';
+import { fadeIn } from 'react-navigation-transitions';
 
 import NativeBaseFooter from './Footer';
 

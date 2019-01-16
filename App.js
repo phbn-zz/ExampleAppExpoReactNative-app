@@ -3,8 +3,7 @@ import { AppLoading, Asset } from "expo";
 import { Root, StyleProvider } from "native-base";
 
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./store";
+import { store } from "./src/store";
 
 import AppNavigator from "./src/navigation/NavigationStructure";
 
@@ -39,14 +38,11 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <StyleProvider style={getTheme(material)}>
-            <Root>
-              <AppNavigator ref={setNavigator} />
-              <AppReview />
-            </Root>
-          </StyleProvider>
-        </PersistGate>
+        <StyleProvider style={getTheme(material)}>
+          <Root>
+            <AppNavigator ref={setNavigator} />
+          </Root>
+        </StyleProvider>
       </Provider>
     );
   }
