@@ -1,21 +1,55 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { AppLoading, Asset } from "expo";
+import { Root, StyleProvider } from "native-base";
 
-export default class App extends React.Component {
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./store";
+
+import AppNavigator from "./src/navigation/NavigationStructure";
+
+class App extends Component {
+  state = {
+    isReady: false
+  };
+
+  async _cacheResourcesAsync() {
+    const images = [require("./assets/background.png")];
+
+    const cacheImages = images.map(image =>
+      Asset.fromModule(image).downloadAsync()
+    );
+    return Promise.all(cacheImages);
+  }
+
   render() {
+    //Preloading assets
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this._cacheResourcesAsync}
+          onFinish={() => {
+            this.setState({ isReady: true });
+            console.log("Cached assets");
+          }}
+          onError={console.warn}
+        />
+      );
+    }
+
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <StyleProvider style={getTheme(material)}>
+            <Root>
+              <AppNavigator ref={setNavigator} />
+              <AppReview />
+            </Root>
+          </StyleProvider>
+        </PersistGate>
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
