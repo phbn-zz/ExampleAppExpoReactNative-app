@@ -1,20 +1,21 @@
-import React from 'react';
-import { fadeIn } from 'react-navigation-transitions';
+import React from "react";
+import { fadeIn } from "react-navigation-transitions";
 
-import NativeBaseFooter from './Footer';
+import AuthWelcome from "../components/auth/AuthWelcome";
+import PhoneNumberScreen from "../components/auth/AuthPhoneNumberScreen";
+import AuthForgotPass from "../components/auth/AuthForgotPass";
+import AuthSignIn from "../components/auth/AuthSignIn";
+import AuthSignUp from "../components/auth/AuthSignUp";
+import AuthSignUp from "../components/auth/AuthSignUp";
+import ProfileGrid from "../components/profile/ProfileGrid";
+import HomeScreen from "../components/home/HomeScreen";
+
+import NativeBaseFooter from "./Footer";
 
 import {
   createBottomTabNavigator,
   createStackNavigator
-} from 'react-navigation';
-
-const headerStyle = {
-  headerStyle: {
-    backgroundColor: '#FFFFFF',
-    elevation: 1, // remove shadow on Android
-    shadowOpacity: 1 // remove shadow on iOS
-  }
-};
+} from "react-navigation";
 
 const authStack = {
   screen: createStackNavigator(
@@ -28,40 +29,40 @@ const authStack = {
       signIn: {
         screen: AuthSignIn,
         navigationOptions: () => ({
-          title: 'Sign in to Sp8ces'
+          title: "Sign in to Sp8ces"
         })
       },
       signUp: {
         screen: AuthSignUp,
         navigationOptions: () => ({
-          title: 'Sign up for Sp8ces'
+          title: "Sign up for Sp8ces"
         })
       },
       phoneNumber: {
         screen: PhoneNumberScreen,
         navigationOptions: () => ({
-          title: 'Verification by phone'
+          title: "Verification by phone"
         })
       },
       forgotPassword: {
         screen: AuthForgotPass,
         navigationOptions: () => ({
-          title: 'Forgot password?'
+          title: "Forgot password?"
         })
       }
     },
     {
       defaultNavigationOptions: {
         headerStyle: {
-          backgroundColor: '#1f2024'
+          backgroundColor: "#1f2024"
         },
-        headerTintColor: '#fafbfd',
-        headerLayoutPreset: 'center',
+        headerTintColor: "#fafbfd",
+        headerLayoutPreset: "center",
         headerTitleStyle: {
-          justifyContent: 'center',
-          alignSelf: 'center',
-          color: '#fafbfd',
-          textAlign: 'center'
+          justifyContent: "center",
+          alignSelf: "center",
+          color: "#fafbfd",
+          textAlign: "center"
         }
       },
       transitionConfig: () => fadeIn(800)
@@ -72,33 +73,31 @@ const authStack = {
 const homeStack = {
   screen: createStackNavigator(
     {
-      main: {
-        screen: MapScreen,
+      homeScreen: {
+        screen: HomeScreen,
         navigationOptions: () => ({
-          title: 'Map'
+          title: "Map"
         })
       },
-      profileSwiper: {
+      profileGrid: {
         screen: ProfileGrid,
         navigationOptions: () => ({
-          title: 'Say hello to'
+          title: "Say hello to"
         })
       }
     },
     {
-      mode: 'modal'
+      mode: "modal"
     }
   )
-  }
 };
-
 
 const AppStack = createBottomTabNavigator(
   {
     home: homeStack
   },
   {
-    tabBarPosition: 'bottom',
+    tabBarPosition: "bottom",
     tabBarComponent: props => <NativeBaseFooter {...props} />
   }
 );
@@ -109,8 +108,8 @@ const SwitchStack = createSwitchNavigator(
     auth: authStack
   },
   {
-    initialRouteName: 'auth'
+    initialRouteName: "auth"
   }
 );
 
-export default AppNavigator = createAppContainer(SwitchStack);
+export default (AppNavigator = createAppContainer(SwitchStack));

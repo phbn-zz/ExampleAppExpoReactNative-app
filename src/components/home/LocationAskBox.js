@@ -2,23 +2,23 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable import/no-namespace */
 
-import React, { Component } from 'react';
-import { Text, Linking, ImageBackground, Platform } from 'react-native';
-import { Container } from 'native-base';
-import { CustomButton } from '../auth/common/';
-import { IntentLauncherAndroid, Location } from 'expo';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import React, { Component } from "react";
+import { Text, Linking, ImageBackground, Platform } from "react-native";
+import { Container } from "native-base";
+import { CustomButton } from "../auth/common/";
+import { IntentLauncherAndroid, Location } from "expo";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 const styles = {
   containerStyle: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   textStyle: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "#ffffff",
+    fontWeight: "bold",
+    textAlign: "center",
     margin: 25
   }
 };
@@ -31,7 +31,7 @@ type MapScreenPropsType = {
 
 class LocationBox extends Component<MapScreenPropsType> {
   async reinitializeLocation() {
-    console.log('executing after function');
+    console.log("executing after function");
     const status = await Location.getProviderStatusAsync();
     console.log(status);
     if (status.locationServicesEnabled === true) {
@@ -55,12 +55,12 @@ class LocationBox extends Component<MapScreenPropsType> {
   render() {
     return (
       <ImageBackground
-        source={require('../../assets/images/DarkMap.jpg')}
-        imageStyle={{ resizeMode: 'cover' }}
+        source={require("../../assets/images/DarkMap.jpg")}
+        imageStyle={{ resizeMode: "cover" }}
         style={{
           flex: 1,
-          width: '100%',
-          height: '100%'
+          width: "100%",
+          height: "100%"
         }}
       >
         <Container style={styles.containerStyle}>
@@ -70,14 +70,14 @@ class LocationBox extends Component<MapScreenPropsType> {
           </Text>
           <CustomButton
             onPress={() => {
-              if (Platform.OS === 'android') {
+              if (Platform.OS === "android") {
                 IntentLauncherAndroid.startActivityAsync(
                   IntentLauncherAndroid.ACTION_LOCATION_SOURCE_SETTINGS
                 ).then(async () => {
                   await this.reinitializeLocation();
                 });
               } else {
-                Linking.openURL('app-settings:').then(async () => {
+                Linking.openURL("app-settings:").then(async () => {
                   await this.reinitializeLocation();
                 });
               }

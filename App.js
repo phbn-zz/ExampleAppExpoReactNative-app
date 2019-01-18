@@ -3,7 +3,7 @@ import { AppLoading, Asset } from "expo";
 import { Root, StyleProvider } from "native-base";
 
 import { Provider } from "react-redux";
-import { store } from "./src/store";
+import { store } from "./src/store/store";
 
 import AppNavigator from "./src/navigation/NavigationStructure";
 
@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   async _cacheResourcesAsync() {
-    const images = [require("./assets/background.png")];
+    const images = [require("./assets/images/background.png")];
 
     const cacheImages = images.map(image =>
       Asset.fromModule(image).downloadAsync()
