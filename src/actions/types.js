@@ -53,31 +53,3 @@ export const CAMERA_PERMISSION = 'camera_permitted';
 export const CAMERAROLL_PERMISSION = 'cameraroll_permitted';
 export const CONTACTS_PERMISSION = 'contacts_permitted';
 export const NOTIFICATIONS_PERMISSION = 'notifications_permitted';
-
-export const ReviewActionTypes = {
-  Fetch: 'review_Fetch',
-  Add: 'review_Add',
-  Remove: 'review_Remove',
-  Success: 'review_Success',
-  Failed: 'review_Failed',
-  Reset: 'review_Reset',
-  Start: 'review_Start'
-};
-
-export const AppReviewActionTypes = {
-  Fetch: 'App_Review_Fetch',
-  Add: 'App_Review_Add',
-  Remove: 'App_Review_Remove',
-  Success: 'App_Review_Success',
-  Failed: 'App_Review_Failed',
-  Reset: 'App_Review_Reset',
-  Start: 'App_Review_Start',
-  Update: 'App_Review_Update'
-};
-
-/** RedeemTypes */
-export const RedeemActionTypes = {
-  Redeem: 'redeem',
-  Fetch: 'redeem_fetch',
-  Refresh: 'redeem_refresh'
-};
