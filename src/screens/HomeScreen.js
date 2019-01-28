@@ -5,7 +5,7 @@ type HomeScreenProps = {};
 
 class HomeScreen extends Component<HomeScreenProps> {
 	render() {
-		return <Text>Hello?</Text>;
+		return <Container><Text>Hello?</Text></Container>;
 	}
 }
 

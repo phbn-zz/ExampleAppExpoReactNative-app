@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { AppLoading, Asset } from 'expo';
+
 import { Root, StyleProvider } from 'native-base';
+import getTheme from './native-base-theme/components';
+import material from './native-base-theme/variables/material';
 
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
@@ -51,7 +54,7 @@ class App extends Component {
 			<Provider store={store}>
 				<StyleProvider style={getTheme(material)}>
 					<Root>
-						<AppNavigator ref={setNavigator} />
+						<AppNavigator />
 					</Root>
 				</StyleProvider>
 			</Provider>

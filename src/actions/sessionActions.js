@@ -1,4 +1,4 @@
-import firebase from '../../services/firebase';
+import firebase from '../services/firebase';
 import {
 	SESSION_RESTORING,
 	SESSION_LOADING,
@@ -21,12 +21,9 @@ import {
 	show_error,
 	monitorCheckin
 } from './index';
-import { Segment, Constants, DangerZone } from 'expo'; // eslint-disable-line
-import { store } from '../store';
+import { Segment, DangerZone } from 'expo';
+import { store } from '../store/store';
 import { navigate } from '../services/navigator';
-import Sentry from 'sentry-expo';
-
-const releaseChannel = Constants.manifest.releaseChannel || 'dev';
 
 const { Branch } = DangerZone;
 
@@ -109,8 +106,6 @@ export const restoreSession = () => async dispatch => {
 			dispatch(sessionSuccess(user));
 			dispatch(loadAdditionalUserInfo());
 			dispatch(monitorCheckin());
-			//configure sentry for error logging
-			Sentry.setUserContext(user);
 			Segment.identifyWithTraits(user.uid, {
 				email: user.email,
 				name: user.displayName
@@ -212,27 +207,4 @@ export const sendPasswordResetEmail = email => async dispatch => {
 		.then(() =>
 			dispatch(sessionLoaded('A link to reset your password has been sent'))
 		);
-};
-
-export const LoginCheck = userinfo => dispatch => {
-	if (store.getState().session.dologincheck) {
-		//disable check until enabled by login next time
-		dispatch({ type: RESET_LOGIN_CHECK, payload: false });
-
-		// check if user has a card entered - bug user if answer is no
-		if (
-			userinfo.customer &&
-			userinfo.subscription &&
-			!userinfo.subscription.plan_id.includes('corporate') &&
-			userinfo.customer.card_status === 'no_card' &&
-			userinfo.customer.cf_lastcheckin
-		) {
-			console.log('no card found - redirecting to enter card info');
-			Segment.track('promted user to enter creditcard');
-			navigate('creditcard');
-			show_notification(
-				'Complete your profile, by filling in your creditcard information today :)'
-			);
-		}
-	}
 };

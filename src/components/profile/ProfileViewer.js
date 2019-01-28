@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/prop-types */
-/* eslint-disable react-native/no-color-literals */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { Image, Linking } from 'react-native';
 import { Text, Container, Button } from 'native-base';

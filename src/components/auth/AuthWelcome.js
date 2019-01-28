@@ -45,7 +45,7 @@ class AuthWelcome extends Component<AuthProps> {
 					animation="fadeInDown"
 				>
 					<Image
-						source={require('../../assets/logo.png')}
+						source={require('../../../assets/logo.png')}
 						style={{
 							width: windowWidth * 0.6,
 							height: windowHeight * 0.6,

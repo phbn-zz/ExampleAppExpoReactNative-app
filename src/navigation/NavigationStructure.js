@@ -7,8 +7,9 @@ import {
 	PhoneNumberScreen,
 	AuthForgotPass
 } from '../components/auth';
+import AuthScreen from '../screens/AuthScreen';
 import ProfileGrid from '../components/profile/ProfileGrid';
-import HomeScreen from '../components/home/HomeScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 import NativeBaseFooter from './Footer';
 
@@ -19,10 +20,10 @@ import {
 	createSwitchNavigator
 } from 'react-navigation';
 
-const authStack = {
+const AuthStack = {
 	screen: createStackNavigator(
 		{
-			main: {
+			authWelcome: {
 				screen: AuthWelcome,
 				navigationOptions: {
 					header: null
@@ -72,13 +73,13 @@ const authStack = {
 	)
 };
 
-const homeStack = {
+const HomeStack = {
 	screen: createStackNavigator(
 		{
 			homeScreen: {
 				screen: HomeScreen,
 				navigationOptions: () => ({
-					title: 'Map'
+					title: 'Look at this'
 				})
 			},
 			profileGrid: {
@@ -96,21 +97,21 @@ const homeStack = {
 
 const AppStack = createBottomTabNavigator(
 	{
-		home: homeStack
+		home: HomeStack
 	},
 	{
-		tabBarPosition: 'bottom',
-		tabBarComponent: props => <NativeBaseFooter {...props} />
+		tabBarPosition: 'bottom'
+		/*tabBarComponent: props => <NativeBaseFooter {...props} />*/
 	}
 );
 
 const SwitchStack = createSwitchNavigator(
 	{
-		main: AppStack,
-		auth: authStack
+		App: AppStack,
+		Auth: AuthStack
 	},
 	{
-		initialRouteName: 'auth'
+		initialRouteName: 'Auth'
 	}
 );
 

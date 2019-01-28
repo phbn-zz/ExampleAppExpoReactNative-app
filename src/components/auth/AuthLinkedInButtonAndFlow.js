@@ -6,7 +6,6 @@ import { Button, Icon, Text } from 'native-base';
 import { show_error } from '../../actions/toastActions';
 import LinkedInModal from 'react-native-linkedin';
 import { connect } from 'react-redux';
-import DialogInput from 'react-native-dialog-input'; //Uninstall from packages
 import * as actions from '../../actions';
 import { withNavigation } from 'react-navigation';
 

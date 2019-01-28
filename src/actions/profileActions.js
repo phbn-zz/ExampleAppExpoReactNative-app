@@ -1,10 +1,10 @@
-import firebase from '../../services/firebase';
+import firebase from '../services/firebase';
 import {
 	SEE_ALL_PROFILES,
 	FETCH_CHECKEDIN_PROFILES,
 	UNSEEN_CHECKEDIN_PROFILES
 } from './types';
-import { store } from '../store';
+import { store } from '../store/store';
 import { Keyboard } from 'react-native';
 
 export const updateProfile = profile => async () => {

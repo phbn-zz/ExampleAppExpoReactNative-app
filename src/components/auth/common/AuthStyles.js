@@ -5,7 +5,7 @@ import { Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
-export const backgroundImage = require('../../../assets/image/background.png');
+export const backgroundImage = require('../../../../assets/images/background.png');
 
 export const authColors = {
 	White: '#fafbfd',
