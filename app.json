@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "ExampleWorkPHBN",
+    "name": "Pizzarator",
     "description": "This app contains a sample of my previous work as a developer",
-    "slug": "ExampleWorkPHBN",
+    "slug": "Pizzarator",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": ["ios", "android"],

@@ -5,7 +5,7 @@ import { Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
-export const backgroundImage = require('../../../../assets/images/background.png');
+export const backgroundImage = require('../../../../assets/images/background.jpg');
 
 export const authColors = {
 	White: '#fafbfd',
@@ -14,6 +14,7 @@ export const authColors = {
 
 export const authStyles = {
 	containerStyle: {
+		paddingBottom: 50,
 		alignSelf: 'center',
 		justifyContent: 'center',
 		width: windowWidth * 0.85
@@ -48,6 +49,7 @@ export const authStyles = {
 		paddingTop: 20
 	},
 	txtGreet: {
+		fontFamily: 'Montserrat',
 		color: authColors.White,
 		fontSize: 16,
 		flexWrap: 'wrap',
@@ -57,8 +59,6 @@ export const authStyles = {
 		textAlign: 'center',
 		textShadowColor: authColors.ShadowColor,
 		textShadowRadius: 4,
-		textShadowOffset: { width: 2, height: 2 },
-		backgroundColor: 'rgba(31, 32, 36, 0.1)', //Custom opacity to make more readable
-		bottom: 70
+		textShadowOffset: { width: 2, height: 2 }
 	}
 };

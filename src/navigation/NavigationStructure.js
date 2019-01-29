@@ -1,13 +1,10 @@
 import { fadeIn } from 'react-navigation-transitions';
 
-import {
-	AuthWelcome,
-	AuthSignUp,
-	AuthSignIn,
-	PhoneNumberScreen,
-	AuthForgotPass
-} from '../components/auth';
-import AuthScreen from '../screens/AuthScreen';
+import AuthWelcome from '../components/auth/AuthWelcome';
+import AuthSignUp from '../components/auth/AuthSignUp';
+import AuthSignIn from '../components/auth/AuthSignIn';
+import PhoneNumberScreen from '../components/auth/AuthPhoneNumberScreen';
+import AuthForgotPass from '../components/auth/AuthForgotPass';
 import ProfileGrid from '../components/profile/ProfileGrid';
 import HomeScreen from '../screens/HomeScreen';
 

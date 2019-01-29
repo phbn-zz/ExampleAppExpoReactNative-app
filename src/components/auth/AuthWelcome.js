@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind, react-native/no-inline-styles */
 import React, { Component } from 'react';
-import { Text, Dimensions, Image, ImageBackground } from 'react-native';
+import { Text, Dimensions, Image, ImageBackground, View } from 'react-native';
 import { Container, Button, Form } from 'native-base';
 import { connect } from 'react-redux';
 import * as Animatable from 'react-native-animatable';
@@ -47,20 +47,16 @@ class AuthWelcome extends Component<AuthProps> {
 					<Image
 						source={require('../../../assets/logo.png')}
 						style={{
-							width: windowWidth * 0.6,
-							height: windowHeight * 0.6,
-							paddingBottom: 20
+							width: windowWidth * 0.67,
+							height: windowHeight * 0.67,
+							paddingBottom: 50
 						}}
 						resizeMode="contain"
 					/>
 				</Animatable.View>
-				<Container style={authStyles.containerStyle}>
-					<Text
-						textDecorationColor={authColors.ShadowColor}
-						textDecorationStyle="solid"
-						style={authStyles.txtGreet}
-					>
-						New to Sp8ces? Continue for a free trial!
+				<View style={authStyles.containerStyle}>
+					<Text style={authStyles.txtGreet}>
+						You're hungry? Let's fix that...
 					</Text>
 					<Form>
 						<LISignIn />
@@ -85,7 +81,7 @@ class AuthWelcome extends Component<AuthProps> {
 							<Text style={authStyles.clickableText}>Sign In</Text>
 						</Button>
 					</Form>
-				</Container>
+				</View>
 			</ImageBackground>
 		);
 	}
