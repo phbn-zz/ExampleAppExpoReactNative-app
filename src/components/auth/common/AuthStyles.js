@@ -49,7 +49,6 @@ export const authStyles = {
 		paddingTop: 20
 	},
 	txtGreet: {
-		fontFamily: 'Montserrat',
 		color: authColors.White,
 		fontSize: 16,
 		flexWrap: 'wrap',

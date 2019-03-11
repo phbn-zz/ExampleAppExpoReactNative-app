@@ -1,4 +1,4 @@
-import firebase from '../services/firebase';
+import firebaseService from '../services/firebase';
 import {
 	SEE_ALL_PROFILES,
 	FETCH_CHECKEDIN_PROFILES,
@@ -17,7 +17,7 @@ export const updateProfile = profile => async () => {
 		checkin_id = store.getState().space.checked_in_space.checkin_id;
 	}
 	// update
-	await firebase.functions().httpsCallable('updateProfile')({
+	await firebaseService.functions().httpsCallable('updateProfile')({
 		profile,
 		checkin_id
 	});
@@ -31,7 +31,7 @@ export const getCheckedInProfiles = () => async dispatch => {
 	//reset unseen before setting up listener
 	dispatch({ type: SEE_ALL_PROFILES, payload: 0 });
 	// const unsubscribe =
-	firebase
+	firebaseService
 		.firestore()
 		.collection('/checkins/')
 		.where('space_id', '==', spaceid)

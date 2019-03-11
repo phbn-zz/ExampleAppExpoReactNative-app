@@ -1,4 +1,5 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
+import 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -10,6 +11,17 @@ const firebaseConfig = {
 	messagingSenderId: '633480798554'
 };
 
-firebase.initializeApp(firebaseConfig);
+let instance = null;
 
-export default firebase;
+class FirebaseService {
+	constructor() {
+		if (!instance) {
+			this.app = firebase.initializeApp(firebaseConfig);
+			instance = this;
+		}
+		return instance;
+	}
+}
+
+const firebaseService = new FirebaseService().app;
+export default firebaseService;

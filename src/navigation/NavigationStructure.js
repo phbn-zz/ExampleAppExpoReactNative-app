@@ -29,13 +29,13 @@ const AuthStack = {
 			signIn: {
 				screen: AuthSignIn,
 				navigationOptions: () => ({
-					title: 'Sign in to Sp8ces'
+					title: 'Sign in to Pizzarator'
 				})
 			},
 			signUp: {
 				screen: AuthSignUp,
 				navigationOptions: () => ({
-					title: 'Sign up for Sp8ces'
+					title: 'Sign up for Pizzarator'
 				})
 			},
 			phoneNumber: {
@@ -76,7 +76,7 @@ const HomeStack = {
 			homeScreen: {
 				screen: HomeScreen,
 				navigationOptions: () => ({
-					title: 'Look at this'
+					title: 'Welcome'
 				})
 			},
 			profileGrid: {

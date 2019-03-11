@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Linking } from 'react-native';
 import { Text, Container, Button } from 'native-base';
-import firebase from '../../services/firebase';
+import firebaseService from '../../services/firebase';
 import { show_error } from '../../actions';
 
 type ProfileViewerProps = {
@@ -111,9 +111,7 @@ export default class ProfileViewer extends Component<ProfileViewerProps> {
 						<Image
 							style={styles.avatar}
 							source={{
-								uri:
-									photo ||
-									'https://firebasestorage.googleapis.com/v0/b/sp8ces-778ef.appspot.com/o/userPhotos%2Fprofile_avatar.png?alt=media&token=b380e27e-d2e9-47bc-bfea-f09c571635d3'
+								uri: photo || null
 							}}
 						/>
 					</Container>

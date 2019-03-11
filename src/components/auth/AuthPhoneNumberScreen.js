@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind, react-native/no-inline-styles */
 import React, { Component } from 'react';
-import firebase from '../../services/firebase';
+import firebaseService from '../../services/firebase';
 import { View, ImageBackground } from 'react-native';
 import { show_error } from '../../actions/toastActions';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ class PhoneNumberScreen extends Component<PhoneNumberProps> {
 
 	submitPhoneNumber(phone, ref) {
 		this.props.commonLoadingStatus(true);
-		firebase
+		firebaseService
 			.functions()
 			.httpsCallable('createLIUserWithPhone')({ phone, ref })
 			.then(response => {

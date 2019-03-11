@@ -1,21 +1,17 @@
 {
+  "extends": "react-native",
+  "plugins": ["prettier"],
   "env": {
-    "jest": true,
-    "es6": true
+    "jest": true
   },
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": ["react-native", "prettier"],
   "rules": {
-    "indent": ["error", "tab"],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "no-console": "off",
+    "react/jsx-no-bind": [
+      true,
+      {
+        "allowArrowFunctions": true
+      }
+    ]
   }
 }

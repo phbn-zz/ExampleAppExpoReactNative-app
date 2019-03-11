@@ -1,4 +1,4 @@
-import firebase from '../services/firebase';
+import firebaseService from '../services/firebase';
 import {
 	SESSION_RESTORING,
 	SESSION_LOADING,
@@ -75,9 +75,9 @@ const commonLoaded = () => ({
 });
 
 export const loadAdditionalUserInfo = () => async dispatch => {
-	firebase
+	firebaseService
 		.firestore()
-		.doc(`users/${firebase.auth().currentUser.uid}`)
+		.doc(`users/${firebaseService.auth().currentUser.uid}`)
 		.onSnapshot(
 			doc => {
 				const userinfo = doc.data();
@@ -100,7 +100,7 @@ export const restoreSession = () => async dispatch => {
 	dispatch(sessionLoading());
 	dispatch(sessionRestoring());
 
-	firebase.auth().onAuthStateChanged(user => {
+	firebaseService.auth().onAuthStateChanged(user => {
 		if (user) {
 			console.log('user session restored with user uid ' + user.uid);
 			dispatch(sessionSuccess(user));
@@ -127,7 +127,7 @@ export const restoreSession = () => async dispatch => {
 
 export const loginUser = (email, password) => async dispatch => {
 	dispatch(sessionLoading());
-	firebase
+	firebaseService
 		.auth()
 		.signInWithEmailAndPassword(email, password)
 		.catch(error => {
@@ -140,7 +140,7 @@ export const loginUser = (email, password) => async dispatch => {
 export const loginUserWithToken = token => async dispatch => {
 	console.log('logging in user with token');
 	dispatch(sessionLoading());
-	firebase
+	firebaseService
 		.auth()
 		.signInWithCustomToken(token)
 		.then(user => {
@@ -161,7 +161,7 @@ export const loginUserWithToken = token => async dispatch => {
 export const signupUser = customer => async dispatch => {
 	dispatch(sessionLoading());
 
-	firebase
+	firebaseService
 		.functions()
 		.httpsCallable('createUser')({ customer })
 		.then(response => {
@@ -186,7 +186,7 @@ export const logoutUser = followUpAction => async dispatch => {
 	//reset segment mobile analytics
 	Segment.reset();
 
-	firebase
+	firebaseService
 		.auth()
 		.signOut()
 		.then(dispatch(sessionLogout()))
@@ -198,7 +198,7 @@ export const logoutUser = followUpAction => async dispatch => {
 
 export const sendPasswordResetEmail = email => async dispatch => {
 	dispatch(sessionLoading());
-	firebase
+	firebaseService
 		.auth()
 		.sendPasswordResetEmail(email)
 		.catch(error => {
