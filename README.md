@@ -1,6 +1,6 @@
 # ExampleAppExpoReactNative-app
 
-An demonstration of my coding with React Native + Redux, Expo, Firebase. Currently, the app can runs a user through logging in with LinkedIn or through a Firebase auth flow. However, as time passes I will implement more features, as is already outlined in the codebase.
+An demonstration of my coding with React Native + Redux, Expo, Firebase. Currently, the app can runs a user through log in/sign up with LinkedIn or through a Firebase auth flow. However, as time passes I will implement more features, as is already outlined in the codebase.
 
 Try this app @ Expo:
 https://expo.io/@prhb88/Pizzarator
