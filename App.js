@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { AppLoading, Asset } from "expo";
 import { YellowBox } from "react-native";
+import NavigationService from "./src/services/NavigationService";
 
 import { Root, StyleProvider, Image } from "native-base";
 import getTheme from "./native-base-theme/components";
@@ -16,7 +17,8 @@ import AppNavigator from "./src/navigation/NavigationStructure";
 YellowBox.ignoreWarnings([
   "Require cycle:",
   "Setting a timer",
-  "Warning: Can't call setState"
+  "Warning: Can't call setState",
+  "Possible Unhandled"
 ]);
 
 function cacheImages(images) {
@@ -61,7 +63,11 @@ class App extends Component {
       <Provider store={store}>
         <StyleProvider style={getTheme(material)}>
           <Root>
-            <AppNavigator />
+            <AppNavigator
+              ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+              }}
+            />
           </Root>
         </StyleProvider>
       </Provider>

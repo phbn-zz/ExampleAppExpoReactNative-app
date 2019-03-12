@@ -8,7 +8,7 @@ import {
   USERINFO_LOADED,
   SIGNUP_SUCCESS,
   RESET_LOGIN_CHECK
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   restoring: false,
@@ -39,16 +39,9 @@ export default function(state = initialState, action) {
         logged: true
       };
     case USERINFO_LOADED: {
-      const customer = action.payload.customer
-        ? action.payload.customer
-        : { ...state.customer };
-      const subscription = action.payload.subscription
-        ? action.payload.subscription
-        : { ...state.subscription };
-      const profile = action.payload.profile
-        ? action.payload.profile
-        : { ...state.profile };
-      return { ...state, customer, subscription, profile };
+      const profile = action.payload.profile;
+      console.log(profile);
+      return { ...state, profile };
     }
     case SIGNUP_SUCCESS:
       return {

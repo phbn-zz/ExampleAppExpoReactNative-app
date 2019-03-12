@@ -1,24 +1,24 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Keyboard,
   ScrollView,
   Text,
   ImageBackground,
   KeyboardAvoidingView
-} from 'react-native';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import LISignIn from './AuthLinkedInButtonAndFlow';
-import { Form } from 'native-base';
+} from "react-native";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import LISignIn from "./AuthLinkedInButtonAndFlow";
+import { Form } from "native-base";
 
 import {
   CustomAuthInput,
   CustomButton,
   authStyles,
   backgroundImage
-} from './common';
-import Loader from './common/Loader';
+} from "./common";
+import Loader from "./common/Loader";
 
 type AuthSignUpProps = {
   signupUser: Function,
@@ -27,11 +27,11 @@ type AuthSignUpProps = {
 
 class AuthSignUp extends Component<AuthSignUpProps> {
   state = {
-    email: '',
-    password: '',
-    phone: '',
-    first_name: '',
-    last_name: ''
+    email: "",
+    password: "",
+    phone: "",
+    first_name: "",
+    last_name: ""
   };
 
   render() {
@@ -47,8 +47,8 @@ class AuthSignUp extends Component<AuthSignUpProps> {
     return (
       <ImageBackground
         source={backgroundImage}
-        imageStyle={{ resizeMode: 'cover' }}
-        style={{ width: '100%', height: '100%' }}
+        imageStyle={{ resizeMode: "cover" }}
+        style={{ width: "100%", height: "100%" }}
       >
         <ScrollView>
           <KeyboardAvoidingView
@@ -105,7 +105,7 @@ class AuthSignUp extends Component<AuthSignUpProps> {
               <Text
                 style={authStyles.clickableText}
                 onPress={() => {
-                  this.props.navigation.navigate('signIn');
+                  this.props.navigation.navigate("signIn");
                 }}
               >
                 SIGN IN
